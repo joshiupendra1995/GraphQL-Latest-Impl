@@ -1,0 +1,7 @@
+query Person($personId: ID) {
+    person(personID: $personId) {
+        birthYear
+        created
+        gender
+    }
+}
