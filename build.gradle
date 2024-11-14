@@ -17,18 +17,12 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-graphql'
-<<<<<<< HEAD
 	//runtimeOnly 'com.mysql:mysql-connector-j'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework:spring-webflux'
-	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-webflux
-	//implementation 'org.springframework.boot:spring-boot-starter-webflux:3.2.0'
-
-=======
 	implementation 'org.postgresql:postgresql'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation 'org.springframework.boot:spring-boot-starter-webflux'
->>>>>>> 69d660bc2e1b1d1c54b09d24ba12bf8a8ce0d4f2
 	testImplementation 'org.springframework.graphql:spring-graphql-test'
 	//implementation 'org.springframework.boot:spring-boot-starter-data-jpa:3.0.0'
     implementation 'org.springframework.boot:spring-boot-starter-web'
