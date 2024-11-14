@@ -1,49 +1,77 @@
 package com.uj.graphql.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import java.time.LocalDate;
 
-@Entity
+
 public class Book {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
-	private String title;
-	private String author;
+    private Integer id;
+    private String title;
+    private String author;
+    private LocalDate publishedDate;
 
-	public Book() {
+    private boolean active;
 
-	}
+    public Book() {
 
-	public Book(String title, String author) {
-		this.title = title;
-		this.author = author;
-	}
+    }
 
-	public Integer getId() {
-		return id;
-	}
+    public Book(Integer id, String title, String author, LocalDate publishedDate,boolean active) {
+        this.id = id;
+        this.title = title;
+        this.author = author;
+        this.publishedDate = publishedDate;
+        this.active = active;
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+    }
 
-	public String getTitle() {
-		return title;
-	}
+    public Integer getId() {
+        return id;
+    }
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-	public String getAuthor() {
-		return author;
-	}
+    public String getTitle() {
+        return title;
+    }
 
-	public void setAuthor(String author) {
-		this.author = author;
-	}
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public LocalDate getPublishedDate() {
+        return publishedDate;
+    }
+
+    public void setPublishedDate(LocalDate publishedDate) {
+        this.publishedDate = publishedDate;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", author='" + author + '\'' +
+                ", publishedDate=" + publishedDate +
+                ", active=" + active +
+                '}';
+    }
 }

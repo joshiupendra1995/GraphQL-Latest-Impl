@@ -1,0 +1,10 @@
+extend type Query {
+    allBook: [Book]
+    getBookByTitle(filter: BookFilter): Book
+}
+
+type Mutation {
+    addBook(filter: BookFilter): Book
+    removeBook(id: Int!) : Boolean
+    editBook(id: Int! , bookFilter:BookFilter): Book
+}
