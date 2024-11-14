@@ -1,0 +1,24 @@
+type Book {
+    id: Int
+    title: String
+    author: String
+}
+
+input BookFilter{
+    title: String
+    author: String
+}
+
+type Query {
+    allBook: [Book]
+    getBookByTitle(filter: BookFilter): Book
+    getBookByAuthor(filter: BookFilter): Book
+    getBookByAuthorAndTitle(author: String!,title: String!): Book
+    getBookWithNoTitle: [Book]
+}
+
+type Mutation {
+    addBook(filter: BookFilter): Book
+    removeBook(id: Int!) : Boolean
+    editBook(id: Int! , bookFilter:BookFilter): Book
+}
