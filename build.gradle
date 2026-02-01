@@ -17,7 +17,7 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-graphql'
-	//runtimeOnly 'com.mysql:mysql-connector-j'
+	implementation "org.springframework.boot:spring-boot-starter-actuator"
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework:spring-webflux'
 	implementation 'org.postgresql:postgresql'
