@@ -1,4 +1,19 @@
-extend type Query {
+scalar LocalDate
+
+type Book {
+  id: ID
+  title: String
+  author: String
+  publishedDate: LocalDate
+}
+
+input BookFilter{
+    title: String
+    author: String
+    publishedDate: String
+}
+
+type Query {
     allBook: [Book]
     getBookByTitle(filter: BookFilter): Book
 }
