@@ -10,21 +10,10 @@ import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.ResponseBody;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
 import java.time.LocalDate;
-import java.util.HashMap;
-import java.util.Map;
 
 @Controller
 public class BookQueryController {
@@ -37,16 +26,6 @@ public class BookQueryController {
         this.graphQLService = graphQLService;
     }
 
-    public static void downloadFile(String fileDownloadUri, String destinationPath) throws IOException {
-        URL url = new URL(fileDownloadUri);
-
-        try (InputStream in = url.openStream()) {
-            Path destination = Path.of(destinationPath);
-            Files.copy(in, destination, StandardCopyOption.REPLACE_EXISTING);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
 
     @QueryMapping
     public Flux<Book> allBook() {
@@ -93,15 +72,6 @@ public class BookQueryController {
 
     }
 
-    @GetMapping("/person/{personId}")
-    @ResponseBody
-    public Mono<JsonNode> getPersonDetail(@PathVariable String personId) throws IOException {
-        String personQuery = new String(Files.readAllBytes(Paths.get("src/main/resources/graphql/person.gql")));
-        Map<String, Object> variables = new HashMap<>();
-        variables.put("personId", personId);
-        String path = "person";
-        return graphQLService.executeGraphQLQuery(personQuery, variables, path);
-    }
 
     @GetMapping("/v1/getAllUsers")
     public Flux<JsonNode> getAllUsers() {
