@@ -1,4 +1,0 @@
-extend type Query {
-    getBookByAuthor(filter: BookFilter): Book
-    getBookByAuthorAndTitle(author: String!,title: String!): Book
-}
